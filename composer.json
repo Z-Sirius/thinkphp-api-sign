@@ -1,0 +1,30 @@
+{
+    "name": "zsirius/thinkphp-api-sign",
+    "description": "Thinkphp api sign",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "zsirius\\signature\\": "src/"
+        }
+    },
+    "authors": [{
+        "name": "Sirius",
+        "email": "707759383@qq.com"
+    }],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3.0",
+        "topthink/framework": "^6.0.0"
+    },
+    "extra": {
+        "think": {
+            "config": {
+                "signature": "config/signature.php"
+            },
+            "services": [
+                "zsirius\\signature\\SignatureService"
+            ]
+        }
+    }
+}
