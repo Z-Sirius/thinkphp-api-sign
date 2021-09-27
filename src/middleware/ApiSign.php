@@ -1,6 +1,6 @@
 <?php
 
-namespace zsirius\signature;
+namespace zsirius\signature\middleware;
 
 use zsirius\signature\facade\Signature;
 
@@ -16,13 +16,14 @@ class ApiSign
     public function handle($request, \Closure $next)
     {
         if ($request->isGet() || $request->isDelete()) {
-            $params = $request->query();
+            parse_str($request->query(), $params);
         } else {
-            $params = $request->query();
+            parse_str($request->query(), $params);
             if (!strpos($request->header('content-type'), 'multipart/form-data')) {
                 $params['body'] = md5($request->getContent());
             }
         }
+        unset($params['s']);
         if (config('signature.status')) {
             Signature::checkSign($params); // 不通过抛出异常
         }

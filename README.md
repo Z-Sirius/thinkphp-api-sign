@@ -2,18 +2,9 @@
 Thinkphp api sign
 
 ### 初始化
-1、安装
-  ```shell
-  composer require zsirius/thinkphp-api-sign
-  ```
-2、中间件
-  在`app/middleware.php`中添加中间件
-  ```php
-    // 全局中间件定义文件
-    return [
-        \zsirius\signature\ApiSign::class
-    ];
-  ```
+```shell
+composer require zsirius/thinkphp-api-sign
+```
 
 
 ### 签名
@@ -29,7 +20,7 @@ Thinkphp api sign
 将`url`的参数按照键名排序，排序的字符串获取其`sha1`哈希值，连接`appsecret`值，进行`md5`加密，赋予`sign`，并将其添加到参数中。
 
 ### 验证
-验证不通过，抛出异常`zsirius\signature\exceptions\SignException`，需自定义接收。
+验证不通过，抛出异常`zsirius\signature\exception\SignException`，需自定义接收。
 
 
 ### 前端

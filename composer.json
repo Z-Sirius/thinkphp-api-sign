@@ -23,7 +23,7 @@
                 "signature": "config/signature.php"
             },
             "services": [
-                "zsirius\\signature\\SignatureService"
+                "zsirius\\signature\\service\\SignatureService"
             ]
         }
     }
